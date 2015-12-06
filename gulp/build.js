@@ -6,7 +6,12 @@
       conf = require('./conf'),
 
       $ = require('gulp-load-plugins')({
-        pattern: ['gulp-*', 'main-bower-files', 'uglify-save-license', 'del']
+        pattern : [
+          'gulp-*',
+          'main-bower-files',
+          'uglify-save-license',
+          'del'
+        ]
       });
 
   gulp.task('partials', function () {
@@ -60,15 +65,16 @@
       .pipe($.revReplace())
       .pipe(htmlFilter)
       .pipe($.minifyHtml({
-        empty: true,
-        spare: true,
-        quotes: true,
-        conditionals: true
+        empty        : true,
+        spare        : true,
+        quotes       : true,
+        conditionals : true
       }))
       .pipe(htmlFilter.restore)
       .pipe(gulp.dest(path.join(conf.paths.dist, '/')))
-      .pipe($.size({ title: path.join(conf.paths.dist, '/'), showFiles: true }));
-    });
+      .pipe($.size({ title: path.join(conf.paths.dist, '/'), showFiles: true }))
+    ;
+  });
 
   // Only applies for fonts from bower dependencies
   // Custom fonts are handled by the "other" task
@@ -85,13 +91,14 @@
     });
 
     return gulp.src([
-      path.join(conf.paths.src, '/**/*'),
-      path.join('!' + conf.paths.src, '/**/*.{html,css,js,scss}')
-    ])
+        path.join(conf.paths.src, '/**/*'),
+        path.join('!' + conf.paths.src, '/**/lang/*'),
+        path.join('!' + conf.paths.src, '/**/*.{html,css,js,scss}')
+      ])
       .pipe(fileFilter)
       .pipe(gulp.dest(path.join(conf.paths.dist, '/')));
   });
 
-  gulp.task('build', ['html', 'fonts', 'other']);
+  gulp.task('build', ['html', 'fonts', 'other', 'locales:dist']);
 
 })();
