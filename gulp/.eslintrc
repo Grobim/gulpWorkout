@@ -1,8 +1,0 @@
-{
-  "rules": {
-    "eqnull": false
-  },
-  "env": {
-    "node": true
-  }
-}
