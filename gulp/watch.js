@@ -7,7 +7,7 @@
 
       browserSync = require('browser-sync');
 
-  gulp.task('watch', ['inject'], function () {
+  gulp.task('watch', ['inject', 'locales'], function () {
 
     gulp.watch([path.join(conf.paths.src, '/*.html'), 'bower.json'], ['inject-reload']);
 
