@@ -26,9 +26,9 @@
     for (var i = 0; i < langs.length; ++i) {
       var lang = langs[i],
           langFilter = filter('**/' + lang + '.json', {restore: true});
-      chain = chain.pipe(langFilter);
-      chain = chain.pipe(extend(lang + '.json'));
-      chain = chain.pipe(langFilter.restore);
+      chain = chain.pipe(langFilter)
+      .pipe(extend(lang + '.json'))
+      .pipe(langFilter.restore);
     }
     return chain.pipe(gulp.dest(targetFolder));
   }
