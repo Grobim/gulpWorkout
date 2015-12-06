@@ -16,33 +16,33 @@
 
   gulp.task('partials', function () {
     return gulp.src([
-      path.join(conf.paths.src, '/app/**/*.html'),
-      path.join(conf.paths.tmp, '/serve/app/**/*.html')
-    ])
+        path.join(conf.paths.src, '/app/**/*.html'),
+        path.join(conf.paths.tmp, '/serve/app/**/*.html')
+      ])
       .pipe($.minifyHtml({
-        empty: true,
-        spare: true,
-        quotes: true
+        empty  : true,
+        spare  : true,
+        quotes : true
       }))
       .pipe($.angularTemplatecache('templateCacheHtml.js', {
-        module: 'gulpWorkout',
-        root: 'app'
+        module : 'gulpWorkout',
+        root   : 'app'
       }))
       .pipe(gulp.dest(conf.paths.tmp + '/partials/'));
   });
 
   gulp.task('html', ['inject', 'partials'], function () {
-    var partialsInjectFile = gulp.src(path.join(conf.paths.tmp, '/partials/templateCacheHtml.js'), { read: false });
-    var partialsInjectOptions = {
-      starttag: '<!-- inject:partials -->',
-      ignorePath: path.join(conf.paths.tmp, '/partials'),
-      addRootSlash: false
-    };
+    var partialsInjectFile = gulp.src(path.join(conf.paths.tmp, '/partials/templateCacheHtml.js'), { read: false }),
+        partialsInjectOptions = {
+      starttag     : '<!-- inject:partials -->',
+      ignorePath   : path.join(conf.paths.tmp, '/partials'),
+      addRootSlash : false
+    },
 
-    var htmlFilter = $.filter('*.html', { restore: true });
-    var jsFilter = $.filter('**/*.js', { restore: true });
-    var cssFilter = $.filter('**/*.css', { restore: true });
-    var assets;
+        htmlFilter = $.filter('*.html', { restore: true }),
+        jsFilter = $.filter('**/*.js', { restore: true }),
+        cssFilter = $.filter('**/*.css', { restore: true }),
+        assets;
 
     return gulp.src(path.join(conf.paths.tmp, '/serve/*.html'))
       .pipe($.inject(partialsInjectFile, partialsInjectOptions))
