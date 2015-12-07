@@ -1,16 +1,16 @@
 'use strict';
 
-var path = require('path');
-var gulp = require('gulp');
-var conf = require('./conf');
+var path = require('path'),
+    gulp = require('gulp'),
+    conf = require('./conf'),
 
-var karma = require('karma');
+    karma = require('karma'),
 
-var pathSrcHtml = [
+    pathSrcHtml = [
   path.join(conf.paths.src, '/**/*.html')
-];
+],
 
-var pathSrcJs = [
+    pathSrcJs = [
   path.join(conf.paths.src, '/**/!(*.spec).js')
 ];
 
@@ -26,20 +26,20 @@ function runTests (singleRun, done) {
     pathSrcJs.forEach(function(path) {
       preprocessors[path] = ['coverage'];
     });
-    reporters.push('coverage')
+    reporters.push('coverage');
   }
 
   var localConfig = {
-    configFile: path.join(__dirname, '/../karma.conf.js'),
-    singleRun: singleRun,
-    autoWatch: !singleRun,
-    reporters: reporters,
-    preprocessors: preprocessors
+    configFile    : path.join(__dirname, '/../karma.conf.js'),
+    singleRun     : singleRun,
+    autoWatch     : !singleRun,
+    reporters     : reporters,
+    preprocessors : preprocessors
   };
 
   var server = new karma.Server(localConfig, function(failCount) {
-    done(failCount ? new Error("Failed " + failCount + " tests.") : null);
-  })
+    done(failCount ? new Error('Failed ' + failCount + ' tests.') : null);
+  });
   server.start();
 }
 
