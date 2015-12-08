@@ -7,7 +7,7 @@
 
       browserSync = require('browser-sync');
 
-  gulp.task('watch', ['inject', 'locales'], function () {
+  gulp.task('watch', ['inject', 'locales'], function() {
 
     gulp.watch([path.join(conf.paths.src, '/*.html'), 'bower.json'], ['inject-reload']);
 
@@ -22,7 +22,7 @@
       }
     });
 
-    gulp.watch(path.join(conf.paths.src, '/app/**/*.js'), function(event) {
+    gulp.watch(path.join(conf.paths.src, '/app/**/!(*.spec|*.pre).js'), function(event) {
       if(isOnlyChange(event)) {
         gulp.start('scripts-reload');
       } else {
@@ -35,6 +35,14 @@
     });
 
     gulp.watch(path.join(conf.paths.src, '/app/**/lang/*.json'), ['locales-reload']);
+
+  });
+
+  gulp.task('watch:test', ['scripts'], function() {
+
+    gulp.watch(path.join(conf.paths.src, '/app/**/*.js'), function() {
+        gulp.start('scripts-reload');
+    });
 
   });
 

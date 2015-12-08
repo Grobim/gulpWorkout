@@ -9,12 +9,7 @@
 
       $ = require('gulp-load-plugins')();
 
-  gulp.task('scripts-reload', ['preprocess'], function() {
-    return buildScripts()
-      .pipe(browserSync.stream());
-  });
-
-  gulp.task('scripts-reload:test', ['preprocess:test'], function() {
+  gulp.task('scripts-reload', function() {
     return buildScripts()
       .pipe(browserSync.stream());
   });

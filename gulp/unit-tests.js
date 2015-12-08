@@ -52,7 +52,7 @@
     runTests(true, done, 'karma.conf.dist.js');
   });
 
-  gulp.task('test:auto', ['watch'], function(done) {
+  gulp.task('test:auto', ['watch:test'], function(done) {
     runTests(false, done);
   });
 
