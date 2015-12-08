@@ -8,14 +8,14 @@
       karma = require('karma'),
 
       pathSrcHtml = [
-    path.join(conf.paths.src, '/**/*.html')
-  ],
+        path.join(conf.paths.src, '/**/*.html')
+      ],
 
       pathSrcJs = [
-    path.join(conf.paths.src, '/**/!(*.spec).js')
-  ];
+        path.join(conf.paths.src, '/**/!(*.spec).js')
+      ];
 
-  function runTests (singleRun, done) {
+  function runTests (singleRun, done, file) {
     var reporters = ['progress'];
     var preprocessors = {};
 
@@ -31,7 +31,7 @@
     }
 
     var localConfig = {
-      configFile    : path.join(__dirname, '/../karma.conf.js'),
+      configFile    : path.join(__dirname, '/../' + (file || 'karma.conf.js')),
       singleRun     : singleRun,
       autoWatch     : !singleRun,
       reporters     : reporters,
@@ -46,6 +46,10 @@
 
   gulp.task('test', ['scripts'], function(done) {
     runTests(true, done);
+  });
+
+  gulp.task('test:dist', ['build'], function(done) {
+    runTests(true, done, 'karma.conf.dist.js');
   });
 
   gulp.task('test:auto', ['watch'], function(done) {

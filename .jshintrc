@@ -16,10 +16,17 @@
   "undef": true,
   "unused": true,
   "globals": {
-    "angular"  : false,
-    "firebase" : false,
-    "_"        : false,
-    "$"        : false,
-    "saveAs"   : false
+    "angular"    : false,
+    "firebase"   : false,
+    "_"          : false,
+    "$"          : false,
+    "saveAs"     : false,
+    "ngDescribe" : false,
+    "describe"   : false,
+    "it"         : false,
+    "beforeEach" : false,
+    "la"         : false,
+    "expect"     : false,
+    "spyOn"      : false
   }
 }

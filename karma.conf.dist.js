@@ -13,14 +13,14 @@
 
   function listFiles() {
     var wiredepOptions = _.extend({}, conf.wiredep, {
-      dependencies    : true,
+      dependencies    : false,
       devDependencies : true
     });
 
-    var patterns = wiredep(wiredepOptions).js
+    var patterns = [path.join(conf.paths.dist, '/scripts/**/vendor-*.js')]
+      .concat(wiredep(wiredepOptions).js)
       .concat([
-        path.join(conf.paths.src, '/app/**/*.module.js'),
-        path.join(conf.paths.src, '/app/**/!(*.pre).js'),
+        path.join(conf.paths.dist, '/scripts/**/app-*.js'),
         path.join(conf.paths.src, '/initSpecs.js'),
         path.join(conf.paths.src, '/specsData/**/*.js'),
         path.join(conf.paths.src, '/**/*.spec.js'),

@@ -94,6 +94,8 @@
       .pipe(gulp.dest(path.join(conf.paths.dist, '/')));
   });
 
-  gulp.task('build', ['html', 'fonts', 'other', 'locales:dist']);
+  gulp.task('build', ['clean'], function() {
+    gulp.start(['html', 'fonts', 'other', 'locales:dist']);
+  });
 
 })();
