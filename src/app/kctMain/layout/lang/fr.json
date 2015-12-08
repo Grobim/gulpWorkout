@@ -1,0 +1,91 @@
+{
+  "kct.layout" : {
+    "common"    : {
+      "appName"     : "KerbalCoolTools",
+      "save"        : "Sauvegarder",
+      "add"         : "Ajouter",
+      "details"     : "Détails",
+      "edit"        : "Modifier",
+      "remove"      : "Supprimer",
+      "search"      : "Rechercher",
+      "cancel"      : "Annuler",
+      "createCopy"  : "Créer une copie",
+      "copyTitle"   : "Copie de : {title}",
+      "resultCount" : "Résultats ({count})",
+      "fields"      : {
+        "title"           : "Titre",
+        "desc"            : "Description",
+        "details"         : "Détails",
+        "notes"           : "Notes",
+        "version"         : "Version",
+        "kspVersion"      : "Version de KSP",
+        "minVersion"      : "Version min",
+        "modsPerPage"     : "Mods par page",
+        "knownDeps"       : "Dépendances connues",
+        "email"           : "Email",
+        "password"        : "Mot de passe",
+        "confirmPassword" : "Confirmer mot de passe",
+        "author"          : "Auteur",
+        "saveFile"        : "Fichier de sauvegarde"
+      },
+      "buttons"     : {
+        "upload" : "Déposer"
+      },
+      "errors"      : {
+        "required"      : "Ce champ est requis",
+        "maxlength"     : "This field should not exceed {max, plural, one{1 character} other{# characters}}",
+        "minlength"     : "This field should contain {min, plural, one{1 maximun character} other{# maximum characters}}",
+        "rangelength"   : "This field should contain between {min} and {max} characters",
+        "email"         : "Invalid email",
+        "number"        : "Invalid number",
+        "min"           : "The value should be higher than {min}",
+        "max"           : "The value should be lower than {max}",
+        "rangenumber"   : "The value should be between {min} and {max}",
+        "shouldConnect" : "Connexion requise",
+        "permissions"   : {
+          "save"   : "Vous n'avez pas les droits suffisants pour éditer ça.",
+          "add"    : "Vous n'avez pas les droits suffisants pour ajouter ça.",
+          "remove" : "Vous n'avez pas les droits suffisants pour supprimer ça.",
+          "error"  : "Vous n'avez pas les droits suffisants pour consulter ça.",
+          "loaded" : "Une erreur est survenue lors du chargement de cette donnée"
+        },
+        "rooting"       : {
+          "requireAuth"   : "Cette page n'est disponible que pour les utilisateurs connectés",
+          "requireUnauth" : "Cette page n'est disponible que pour les utilisateurs déconnectés"
+        }
+      },
+      "pagination"  : {
+        "first" : "Première",
+        "last"  : "Dernière"
+      }
+    },
+    "messages"  : {
+      "saved"         : "Sauvegarde réussie",
+      "logout"        : "Déconnexion réussie",
+      "loginRedirect" : "Vous serez d'abord redirigé vers la page de connection",
+      "comingSoon"    : "Bientôt disponible"
+    },
+    "header"    : {
+      "home"             : "Accueil",
+      "saveManager"      : {
+        "title" : "Gestion de sauvegardes",
+        "saves" : "Sauvegardes",
+        "mods"  : "Mods"
+      },
+      "profile"          : "Profil",
+      "login"            : "Connexion",
+      "logout"           : "Déconnexion",
+      "toggleNavigation" : "Afficher navigation"
+    },
+    "footer"    : {
+      "text" : "♥ from the Yeoman team and Firebase"
+    },
+    "languages" : {
+      "en" : "Anglais",
+      "fr" : "Français"
+    },
+    "siveNav"   : {
+      "langNotFound" : "\"{selectedLang}\" n'est pas disponible"
+    }
+  }
+}

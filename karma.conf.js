@@ -13,8 +13,8 @@
 
   function listFiles() {
     var wiredepOptions = _.extend({}, conf.wiredep, {
-      dependencies: true,
-      devDependencies: true
+      dependencies    : true,
+      devDependencies : true
     });
 
     var patterns = wiredep(wiredepOptions).js
@@ -33,10 +33,10 @@
       };
     });
     files.push({
-      pattern: path.join(conf.paths.src, '/assets/**/*'),
-      included: false,
-      served: true,
-      watched: false
+      pattern  : path.join(conf.paths.src, '/assets/**/*'),
+      included : false,
+      served   : true,
+      watched  : false
     });
     return files;
   }
@@ -51,8 +51,8 @@
       autoWatch: false,
 
       ngHtml2JsPreprocessor: {
-        stripPrefix: conf.paths.src + '/',
-        moduleName: 'gulpWorkout'
+        stripPrefix : conf.paths.src + '/',
+        moduleName  : 'kct'
       },
 
       logLevel: 'WARN',

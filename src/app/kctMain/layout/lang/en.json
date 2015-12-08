@@ -1,0 +1,91 @@
+{
+  "kct.layout" : {
+    "common"    : {
+      "appName"     : "KerbalCoolTools",
+      "save"        : "Save",
+      "add"         : "Add",
+      "details"     : "Details",
+      "edit"        : "Edit",
+      "remove"      : "Remove",
+      "search"      : "Search",
+      "cancel"      : "Cancel",
+      "createCopy"  : "Create a copy",
+      "copyTitle"   : "Copy of : {title}",
+      "resultCount" : "Results ({count})",
+      "fields" : {
+        "title"           : "Title",
+        "desc"            : "Description",
+        "details"         : "Details",
+        "notes"           : "Notes",
+        "version"         : "Version",
+        "kspVersion"      : "KSP Version",
+        "minVersion"      : "Min version",
+        "modsPerPage"     : "Mods per page",
+        "knownDeps"       : "Know dependencies",
+        "email"           : "Email",
+        "password"        : "Password",
+        "confirmPassword" : "Confirm password",
+        "author"          : "Author",
+        "saveFile"        : "Save file"
+      },
+      "errors"      : {
+        "required"      : "This field is required",
+        "maxlength"     : "This field should not exceed {max, plural, one{1 character} other{# characters}}",
+        "minlength"     : "This field should contain {min, plural, one{1 maximun character} other{# maximum characters}}",
+        "rangelength"   : "This field should contain between {min} and {max} characters",
+        "email"         : "Invalid email",
+        "number"        : "Invalid number",
+        "min"           : "The value should be higher than {min}",
+        "max"           : "The value should be lower than {max}",
+        "rangenumber"   : "The value should be between {min} and {max}",
+        "shouldConnect" : "Log in first",
+        "permissions"   : {
+          "save"   : "Your permissions are insufficent to edit this",
+          "add"    : "Your permissions are insufficent to add this",
+          "remove" : "Your permissions are insufficent to delete this",
+          "error"  : "Your permissions are insufficent to read this",
+          "loaded" : "An error occured while loading data"
+        },
+        "rooting"       : {
+          "requireAuth"   : "This page is only available to logged users",
+          "requireUnauth" : "This page is only available to unlogged users"
+        }
+      },
+      "buttons"     : {
+        "upload" : "Upload"
+      },
+      "pagination"  : {
+        "first" : "First",
+        "last"  : "Last"
+      }
+    },
+    "messages"  : {
+      "saved"         : "Save successfull",
+      "logout"        : "Successfully logged out",
+      "loginRedirect" : "You will be redirected to the login page first",
+      "comingSoon"    : "Coming soon"
+    },
+    "header"    : {
+      "home"             : "Home",
+      "saveManager"      : {
+        "title" : "Save Manager",
+        "saves" : "Saves",
+        "mods"  : "Mods"
+      },
+      "profile"          : "Profile",
+      "login"            : "Login",
+      "logout"           : "Logout",
+      "toggleNavigation" : "Toggle navigation"
+    },
+    "footer"    : {
+      "text" : "♥ from the Yeoman team and Firebase"
+    },
+    "languages" : {
+      "en" : "English",
+      "fr" : "French"
+    },
+    "siveNav"   : {
+      "langNotFound" : "No language matching \"{selectedLang}\""
+    }
+  }
+}

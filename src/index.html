@@ -1,8 +1,8 @@
 <!doctype html>
-<html ng-app="gulpWorkout">
+<html ng-app="kct" ng-controller="KctMainController as mainCtrl">
   <head>
     <meta charset="utf-8">
-    <title>gulpWorkout</title>
+    <title ng-bind="mainCtrl.getWindowTitleKey() | translate"></title>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width">
     <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
@@ -11,6 +11,7 @@
     <!-- bower:css -->
     <!-- run `gulp inject` to automatically populate bower styles dependencies -->
     <!-- endbower -->
+    <link rel="stylesheet" href="../bower_local/angular-material-data-table/dist/md-data-table.css" />
     <!-- endbuild -->
 
     <!-- build:css({.tmp/serve,src}) styles/app.css -->
@@ -19,17 +20,22 @@
     <!-- endinject -->
     <!-- endbuild -->
   </head>
-  <body>
+  <body ng-class="mainCtrl.getBodyClass()">
     <!--[if lt IE 10]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
 
-    <div ui-view></div>
+    <div ui-view layout="column" layout-fill></div>
 
     <!-- build:js(src) scripts/vendor.js -->
     <!-- bower:js -->
     <!-- run `gulp inject` to automatically populate bower script dependencies -->
     <!-- endbower -->
+    <script src="../bower_local/angular-breadcrumb/release/angular-breadcrumb.js"></script>
+    <script src="../bower_local/angular-material-data-table/dist/md-data-table.js"></script>
+    <script src="../bower_local/FileSaver.js/FileSaver.js"></script>
+    <script src="../bower_local/Blob.js/Blob.js"></script>
+    <script src="../bower_components/messageformat/locale/fr.js"></script>
     <!-- endbuild -->
 
     <!-- build:js({.tmp/serve,.tmp/partials,src}) scripts/app.js -->

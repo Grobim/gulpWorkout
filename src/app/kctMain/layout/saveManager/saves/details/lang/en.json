@@ -1,0 +1,34 @@
+{
+  "kct.layout.saveManager.saves.details" : {
+    "return"   : "Return to save list",
+    "creation" : {
+      "title"           : "Save creation",
+      "windowTitle"     : "Save creation",
+      "breadCrumbTitle" : "Save creation"
+    },
+    "edition"  : {
+      "windowTitle"     : "Save edition",
+      "title"           : "Save edition : {saveTitle}",
+      "breadCrumbTitle" : "Save edition : {saveTitle}",
+      "saveFirst"       : "Save first",
+      "mods"            : {
+        "header" : "Included mods",
+        "manage" : "Manage mods"
+      }
+    },
+    "messages" : {
+      "delete" : {
+        "success" : "Save deleted"
+      },
+      "fileUpload" : {
+        "error"   : "An error occured uploading the file"
+      },
+      "create" : {
+        "success" : "Save created successfully"
+      },
+      "edit" : {
+        "success" : "Save edited successfully"
+      }
+    }
+  }
+}

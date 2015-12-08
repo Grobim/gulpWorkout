@@ -1,0 +1,23 @@
+{
+  "kct.layout.saveManager.mods.details" : {
+    "return"   : "Retour à la liste de mod",
+    "creation" : {
+      "header" : "Création de mod",
+      "create" : "Créer mod"
+    },
+    "edition"  : {
+      "header"   : "Détails du mod : {modTitle}",
+      "buttons"  : {
+        "edit"   : "Modifier mod",
+        "delete" : "Supprimer mod"
+      },
+      "versions" : {
+        "header" : "Dernières versions enregistrées",
+        "manage" : "Gérer versions"
+      },
+      "errors": {
+        "isDep" : "Ce mod est en dépendance d'un autre"
+      }
+    }
+  }
+}

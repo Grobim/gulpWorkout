@@ -1,0 +1,27 @@
+<div class="mod-details" layout="column">
+  <div layout="row">
+    <md-button class="md-primary" ui-sref="kct.saveManager.mods" flex="initial" layout-align="left center">
+      <ng-md-icon icon="chevron_left"></ng-md-icon>
+      <span translate>kct.layout.saveManager.mods.details.return</span>
+    </md-button>
+  </div>
+  <div layout="row" layout-sm="column">
+    <md-card flex="70" flex-sm="100" layout-padding="">
+      <h2 class="md-headline" translate>kct.layout.saveManager.mods.details.creation.header</h2>
+      <md-divider></md-divider>
+      <form ng-submit="newModCtrl.createMod()" name="newModCtrl.modForm">
+        <md-input-container smart-field>
+          <label for="modTitle"><span translate>kct.layout.common.fields.title</span></label>
+          <input id="modTitle" required name="modTitle" type="text" ng-model="newModCtrl.mod.title" />
+        </md-input-container>
+        <md-input-container>
+          <label for="modDesc" translate>kct.layout.common.fields.desc</label>
+          <textarea ng-model="newModCtrl.mod.desc" id="modDesc" rows="5"></textarea>
+        </md-input-container>
+        <md-input-container layout="row" layout-md="column" layout-sm="column">
+          <md-button class="md-raised md-primary" flex="40" flex-md="100" flex-sm="100"><span translate>kct.layout.saveManager.mods.details.creation.create</span></md-button>
+        </md-input-container>
+      </form>
+    </md-card>
+  </div>
+</div>

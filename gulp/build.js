@@ -25,7 +25,7 @@
         quotes : true
       }))
       .pipe($.angularTemplatecache('templateCacheHtml.js', {
-        module : 'gulpWorkout',
+        module : 'kct',
         root   : 'app'
       }))
       .pipe(gulp.dest(conf.paths.tmp + '/partials/'));

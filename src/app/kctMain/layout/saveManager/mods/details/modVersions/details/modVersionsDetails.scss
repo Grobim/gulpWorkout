@@ -1,0 +1,11 @@
+@import "modVersionDeps/list/modVersionDepsList.scss";
+
+body.save-manager .mod-versions-details {
+
+  md-data-table-pagination {
+    div span.label {
+      display: none;
+    }
+  }
+
+}

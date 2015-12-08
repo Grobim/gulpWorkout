@@ -1,0 +1,8 @@
+{
+  "kct.layout.saveManager.saves.list" : {
+    "windowTitle"     : "Saves",
+    "breadCrumbTitle" : "Saves",
+    "title"           : "Saves",
+    "add"             : "Add a save"
+  }
+}

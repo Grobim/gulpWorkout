@@ -1,0 +1,5 @@
+{
+  "kct.layout.home": {
+    "test" : "Hello {test}"
+  }
+}

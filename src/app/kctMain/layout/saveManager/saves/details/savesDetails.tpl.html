@@ -1,0 +1,156 @@
+<div class="save-details" layout="column">
+  <div layout="row">
+    <md-button class="md-primary" ui-sref="kct.saveManager.saves" flex="initial" layout-align="left center">
+      <ng-md-icon icon="chevron_left"></ng-md-icon>
+      <span translate>kct.layout.saveManager.saves.details.return</span>
+    </md-button>
+  </div>
+  <div layout="row" layout-sm="column">
+    <md-card flex=""
+             flex-sm="100"
+             layout="row"
+             layout-padding=""
+             layout-align="center center"
+             loading-spinner="savesDetailsLoad">
+      <div flex>
+        <h2 class="md-headline" ng-cloak ng-if="!saveDetailsCtrl.isCreation()" translate translate-values="{saveTitle : saveDetailsCtrl.save.title || ''}">kct.layout.saveManager.saves.details.edition.title</h2>
+        <h2 class="md-headline" ng-cloak ng-if="saveDetailsCtrl.isCreation()" translate>kct.layout.saveManager.saves.details.creation.title</h2>
+        <md-divider></md-divider>
+        <div layout="row" layout-sm="column" layout-margin="">
+          <form ng-submit="saveDetailsCtrl.formAction()" flex flex-sm="100" name="saveDetailsCtrl.saveForm">
+            <md-input-container smart-field>
+              <label for="saveTitle">
+                <span translate>kct.layout.common.fields.title</span>
+              </label>
+              <input id="saveTitle" required name="saveTitle" type="text" ng-model="saveDetailsCtrl.save.title" />
+            </md-input-container>
+            <md-input-container>
+              <label for="saveKspVersion"><span translate>kct.layout.common.fields.author</span></label>
+              <input id="saveKspVersion" disabled name="saveKspVersion" type="text" ng-model="saveDetailsCtrl.save.$authorName" />
+            </md-input-container>
+            <md-input-container smart-field>
+              <label for="saveKspVersion">
+                <span translate>kct.layout.common.fields.kspVersion</span>
+              </label>
+              <input id="saveKspVersion" required name="saveKspVersion" type="text" ng-model="saveDetailsCtrl.save.kspVersion" />
+            </md-input-container>
+            <md-input-container>
+              <label for="saveDesc"><span translate>kct.layout.common.fields.desc</span></label>
+              <textarea id="saveDesc" rows="3" name="saveDesc" type="text" ng-model="saveDetailsCtrl.save.desc"></textarea>
+            </md-input-container>
+            <div layout="row"
+                 layout-wrap=""
+                 loading-spinner="savesDetailsLoadFile"
+                 layout-align="center center">
+              <div layout="row" flex-gt-sm="" flex-sm="100">
+                <md-input-container flex>
+                  <label for="saveFile"><span translate>kct.layout.common.fields.saveFile</span></label>
+                  <input id="saveFile" name="saveFile" type="text" ng-model="saveDetailsCtrl.saveFile.name" disabled />
+                </md-input-container>
+                <md-input-container ng-if="saveDetailsCtrl.auth && saveDetailsCtrl.auth.uid === saveDetailsCtrl.save.author">
+                  <md-button type="button"
+                             class="md-icon-button"
+                             ng-click="saveDetailsCtrl.clearSaveFile()"
+                             ng-if="saveDetailsCtrl.saveFile.name.length"
+                             aria-label="Clear save file">
+                    <ng-md-icon icon="close"></ng-md-icon>
+                  </md-button>
+                </md-input-container>
+              </div>
+              <div layout="row" flex-sm="100">
+                <md-input-container flex-sm="" ng-if="saveDetailsCtrl.auth && saveDetailsCtrl.auth.uid === saveDetailsCtrl.save.author">
+                  <md-button choose-file-button="file-input"
+                             class="md-raised"
+                             type="button"
+                             aria-label="file input">
+                    <ng-md-icon icon="file_upload"></ng-md-icon>
+                    <span translate>kct.layout.common.buttons.upload</span>
+                  </md-button>
+                </md-input-container>
+                <md-input-container ng-show="saveDetailsCtrl.saveFile.name.length" flex="initial" flex-sm="">
+                  <md-button ng-disabled="saveDetailsCtrl.fileChanged" class="md-raised" type="button" ng-click="saveDetailsCtrl.downloadFile()" aria-label="Download">
+                    <div loading-spinner="savesDetailsDownload">
+                      <ng-md-icon icon="file_download"></ng-md-icon>
+                      <md-tooltip ng-if="saveDetailsCtrl.fileChanged">
+                        <span translate>kct.layout.saveManager.saves.details.edition.saveFirst</span>
+                      </md-tooltip>
+                    </div>
+                  </md-button>
+                </md-input-container>
+              </div>
+            </div>
+            <div ng-if="saveDetailsCtrl.auth && saveDetailsCtrl.auth.uid === saveDetailsCtrl.save.author"
+                 layout="row"
+                 layout-sm="column">
+              <md-button class="md-raised md-primary"
+                         flex
+                         flex-sm="100">
+                <div loading-spinner="savesDetailsSave">
+                  <span translate>kct.layout.common.save</span>
+                </div>
+              </md-button>
+
+              <md-button type="button"
+                         ng-click="saveDetailsCtrl.deleteSave()"
+                         class="md-raised md-warn"
+                         ng-if="!saveDetailsCtrl.isCreation()"
+                         flex
+                         flex-sm="100">
+                <div loading-spinner="savesDetailsDelete">
+                  <span translate>kct.layout.common.remove</span>
+                </div>
+              </md-button>
+
+            </div>
+            <div ng-if="!saveDetailsCtrl.auth || saveDetailsCtrl.auth.uid !== saveDetailsCtrl.save.author" layout="row" layout-sm="column">
+              <md-input-container flex="50" flex-sm="100">
+                <md-button class="md-raised">
+                  <span translate>kct.layout.common.createCopy</span>
+                  <md-tooltip ng-if="!saveDetailsCtrl.auth">
+                    <span translate>kct.layout.messages.loginRedirect</span>
+                  </md-tooltip>
+                </md-button>
+              </md-input-container>
+            </div>
+            <input id="file-input" type="file" ngf-select="saveDetailsCtrl.uploadSaveFile($files)" name="file" style="display:none;" />
+          </form>
+          <div flex flex-sm="100">
+            <div flex layout="row" layout-sm="column" layout-md="column">
+              <h4 flex flex-sm="100" flex-md="100" class="md-title" translate>kct.layout.saveManager.saves.details.edition.mods.header</h4>
+              <div flex flex-sm="100" flex-md="100" layout="row" layout-align="center center">
+                <md-button class="md-raised" flex>
+                  <span translate>kct.layout.saveManager.saves.details.edition.mods.manage</span>
+                </md-button>
+              </div>
+            </div>
+            <div loading-spinner="saveModListLoad">
+              <md-data-table-container>
+                <table md-data-table="" class="md-data-table-condensed">
+                  <thead md-order="saveDetailsCtrl.tableConfig.order" md-trigger="saveDetailsCtrl.onQueryChange">
+                    <tr>
+                      <th name-key="kct.layout.common.fields.title" order-by="$title"></th>
+                      <th name-key="kct.layout.common.fields.version"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr ng-repeat="mod in saveDetailsCtrl.tableModList">
+                      <td>{{mod.$title}}</td>
+                      <td>{{mod.version | replaceChars:'_':'.'}}</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </md-data-table-container>
+              <md-data-table-pagination
+                md-limit="saveDetailsCtrl.tableConfig.limit"
+                md-page="saveDetailsCtrl.tableConfig.page"
+                md-total="{{saveDetailsCtrl.tableConfig.totalItems}}"
+                md-trigger="saveDetailsCtrl.onQueryChange"
+                md-row-select="[5, 10, 20, 50]">
+              </md-data-table-pagination>
+            </div>
+          </div>
+        </div>
+      </div>
+    </md-card>
+  </div>
+</div>

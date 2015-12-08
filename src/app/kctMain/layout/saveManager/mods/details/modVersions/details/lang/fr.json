@@ -1,0 +1,17 @@
+{
+  "kct.layout.saveManager.mods.details.modVersions.details" : {
+    "return" : "Retour à la liste de versions",
+    "create" : {
+      "header" : "Création de version",
+      "create" : "Créer version"
+    },
+    "edit"   : {
+      "header"      : "Détails de version pour {modTitle}",
+      "title"       : "v{modVersion}",
+      "windowTitle" : "Détails de version",
+      "edit"        : "Modifier version",
+      "delete"      : "Supprimer version",
+      "manage"      : "Gérer dépendances"
+    }
+  }
+}
