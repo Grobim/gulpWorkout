@@ -8,10 +8,16 @@
       extend = require('gulp-extend'),
       filter = require('gulp-filter'),
 
+      browserSync = require('browser-sync'),
+
       langs = ['en', 'fr'];
 
   gulp.task('locales', function() {
     return locales(path.join(conf.paths.tmp, '/serve/langs'));
+  });
+
+  gulp.task('locales-reload', ['locales'], function() {
+    browserSync.reload();
   });
 
   gulp.task('locales:dist', function() {
