@@ -22,7 +22,6 @@
         path.join(conf.paths.src, '/app/**/*.module.js'),
         path.join(conf.paths.src, '/app/**/!(*.pre|*.mock).js'),
         path.join(conf.paths.src, '/initSpecs.js'),
-        path.join(conf.paths.src, '/app/**/*.mock.js'),
         path.join(conf.paths.src, '/app/**/*.spec.js'),
       ])
       .concat(pathSrcHtml);

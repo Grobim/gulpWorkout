@@ -3,7 +3,7 @@
 
   ngDescribe({
     name    : 'ProfilesService',
-    modules : ['kct.mocks', 'kct.mocks.data', 'kct.profiles'],
+    modules : ['kct.mocks', 'kct.profiles'],
     inject  : ['KctRootRef', 'ProfilesService'],
     tests   : testsFunc
   });

@@ -22,7 +22,6 @@
       .concat([
         path.join(conf.paths.dist, '/scripts/**/app-*.js'),
         path.join(conf.paths.src, '/initSpecs.js'),
-        path.join(conf.paths.src, '/app/**/*.mock.js'),
         path.join(conf.paths.src, '/app/**/*.spec.js'),
       ])
       .concat(pathSrcHtml);
