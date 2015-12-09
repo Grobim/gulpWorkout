@@ -20,10 +20,10 @@
     var patterns = wiredep(wiredepOptions).js
       .concat([
         path.join(conf.paths.src, '/app/**/*.module.js'),
-        path.join(conf.paths.src, '/app/**/!(*.pre).js'),
+        path.join(conf.paths.src, '/app/**/!(*.pre|*.mock).js'),
         path.join(conf.paths.src, '/initSpecs.js'),
-        path.join(conf.paths.src, '/specsData/**/*.js'),
-        path.join(conf.paths.src, '/**/*.spec.js'),
+        path.join(conf.paths.src, '/app/**/*.mock.js'),
+        path.join(conf.paths.src, '/app/**/*.spec.js'),
       ])
       .concat(pathSrcHtml);
 
@@ -60,7 +60,7 @@
       frameworks: ['jasmine', 'angular-filesort'],
 
       angularFilesort: {
-        whitelist: [path.join(conf.paths.src, '/**/!(*.html|*.spec|*.mock).js')]
+        whitelist: [path.join(conf.paths.src, '/**/!(*.html|*.spec|*.pre|*.mock).js')]
       },
 
       browsers : [
